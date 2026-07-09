@@ -22,12 +22,13 @@ I'm committed to building practical, hands-on skills through labs, projects, and
 * AI Governance & AI Vendor Risk Management (**NIST AI RMF**)
 * Third-Party Risk Management (**TPRM**) & Vendor Tiering
 * Data Privacy Compliance Mapping (**GDPR**, **HIPAA**, **ISO 27701**)
+
 ## 🎯 My Goals
 
-- Build real-world cybersecurity projects
-- Document my learning journey
-- Develop practical skills in security operations and GRC
-- Contribute to open-source projects as my experience grows
+* Build real-world cybersecurity projects
+* Document my learning journey
+* Develop practical skills in security operations and GRC
+* Contribute to open-source projects as my experience grows
 
 ## 💡 About Me
 
@@ -36,5 +37,3 @@ I'm a Christian, and my faith shapes how I approach my work and the people I ser
 ---
 
 Thanks for stopping by! Feel free to explore my repositories and follow my cybersecurity journey.
-
-
