@@ -1,41 +1,39 @@
 # Hi, I'm Balkissou 👋
 
-I'm passionate about cybersecurity, with a strong foundation in **Governance, Risk, and Compliance (GRC)**, **IT Audit**, and **Risk Management** — and I'm actively building hands-on technical skills through labs, projects, and continuous learning.
+I'm passionate about cybersecurity, with a strong foundation in **Governance, Risk, and Compliance (GRC)**, **IT Audit**, and **Risk Management**. I'm continuously expanding my technical cybersecurity skills through hands-on labs, practical projects, and continuous learning.
 
-This GitHub documents that journey: Linux, networking, packet analysis, vulnerability assessment, log analysis, scripting, and incident response.
-
-## 🚀 Currently Building
-
-* Linux Fundamentals (Kali Linux)
-* Network Traffic Analysis (Wireshark) & Scanning (Nmap)
-* Log Analysis & SIEM Fundamentals (Splunk)
-* Python for Security Automation
-* AWS Cloud Security (IAM)
-* Hands-on labs via **TryHackMe** and **Hack The Box**
-
-## 🛠️ Skills
-
-**Technical:** Linux, Windows, TCP/IP, DNS, DHCP, HTTP/HTTPS, Wireshark, Nmap, Splunk, Git
-
-**GRC & Compliance:** ISO 27001, NIST CSF/RMF/SP 800-53, SOC 2, PCI DSS, SOX, FedRAMP, AI Governance (NIST AI RMF), TPRM, Vendor Risk Assessments, Data Privacy (GDPR, HIPAA, ISO 27701)
-
-## 📂 Featured Projects
-
-* Linux Fundamentals Labs
-* Hack The Box – Starting Point Labs
-* Wireshark Network Traffic Analysis
-* GRC Study Notes & Documentation
-
-More coming as I complete Nmap, Splunk, Python, and AWS Cloud Security projects.
-
-## 🎯 Goals
-
-Build a strong, practical cybersecurity portfolio — combining hands-on Security Operations skills with my GRC background — and contribute to open-source projects as my experience grows.
-
-## 💡 About Me
-
-I'm a Christian, and my faith shapes how I approach my work — with humility, integrity, and a commitment to continuous learning. I believe combining governance and technical security skills gives a more complete view of organizational risk.
+This GitHub documents my hands-on cybersecurity projects as I continue building practical experience in Linux, networking, packet analysis, vulnerability assessment, security monitoring, and other technical cybersecurity domains. Each repository captures what I learned, the techniques I practiced, the challenges I encountered, and how those experiences contribute to my growth as a cybersecurity professional.
 
 ---
 
-⭐ Thanks for visiting! Feel free to explore my repositories and follow my cybersecurity journey.
+## 🎯 What You'll Find Here
+
+- Hands-on cybersecurity labs and projects
+- Technical write-ups and documentation
+- Linux and networking exercises
+- Packet analysis and network security investigations
+- Hack The Box and TryHackMe walkthroughs
+- GRC notes and cybersecurity documentation
+
+---
+
+## 📂 Start Here
+
+- [Linux Fundamentals — Day 5](./day5-linux-fundamentals.md)
+- [Kali Linux Hands-On Practice — Day 6](./day6-linux-fundamentals.md)
+- [Hack The Box: Meow — Day 7](./day7-hackthebox-meow.md)
+- [Wireshark Network Traffic Analysis — Day 8](./day8-wireshark-analysis.md)
+
+More write-ups are added as I complete each stage of my learning.
+
+---
+
+## 💡 About Me
+
+I enjoy solving problems, continuously learning, and applying cybersecurity concepts through practical experience. I believe that combining governance, risk management, and technical security skills provides a balanced approach to strengthening an organization's security posture.
+
+I'm also a Christian, and my faith influences how I approach both my work and the people I serve. I strive to learn with humility, work with integrity, and pursue excellence in everything I do.
+
+---
+
+⭐ Thank you for visiting my GitHub! Feel free to explore my repositories and follow my cybersecurity journey.
