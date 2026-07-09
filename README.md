@@ -18,10 +18,10 @@ I'm committed to building practical, hands-on skills through labs, projects, and
 
 ## ✅ Skills & Completed Knowledge
 
-* GRC Frameworks: ISO 27001, NIST, SOC 2, PCI DSS, SOX, FedRAMP
-* AI Governance & AI Vendor Risk Management (NIST AI RMF)
-* Third-Party Risk Management (TPRM) & Vendor Tiering
-* Data Privacy Compliance Mapping (GDPR, HIPAA, ISO 27701)
+* GRC Frameworks: **ISO 27001**, **NIST**,** SOC 2**, **PCI DSS**,**SOX**,**FedRAMP**
+* **AI Governance** & **AI Vendor Risk Management (NIST AI RMF)**
+* **Third-Party Risk Management (TPRM) & Vendor Tiering**
+* **Data Privacy Compliance Mapping (GDPR, HIPAA, ISO 27701)**
 ## 🎯 My Goals
 
 - Build real-world cybersecurity projects
