@@ -1,25 +1,25 @@
 # Day 9 — Wireshark: TCP Analysis & Identifying Suspicious Patterns
 
 **Tool:** Wireshark
-**Platform:** Kali Linux
+**Platform:** Kali Linux (VirtualBox)
 **Date Completed:** July 12, 2026
 
 ---
 
 # Objective
 
-Continue building on Day 8's Wireshark fundamentals by applying the `tcp` filter to view all TCP traffic, identify a complete TCP three-way handshake in a live capture, and practice recognizing patterns (like RST packets) that could indicate suspicious activity versus normal application behavior.
+Continue building on Day 8's Wireshark fundamentals by applying the `tcp` display filter to view all TCP traffic, identify a complete TCP three-way handshake in a live packet capture, and practice recognizing patterns, such as TCP RST (reset) packets, that could indicate suspicious activity versus normal application behavior.
 
 ---
 
 # Skills Practiced
 
-* Starting a live packet capture and generating real browser traffic to analyze
-* Applying the `tcp` display filter to isolate all TCP traffic
-* Identifying a complete TCP three-way handshake (SYN → SYN,ACK → ACK) in real captured packets
+* Starting a live packet capture and generating real browser traffic for analysis
+* Applying the `tcp` display filter to isolate TCP traffic
+* Identifying a complete TCP three-way handshake (SYN → SYN,ACK → ACK) in captured packets
 * Recognizing TCP RST (reset) packets and understanding what they represent
 * Distinguishing between normal application behavior and genuinely suspicious traffic patterns
-* Reading Wireshark's built-in color-coding (e.g., red for resets) as an analysis aid
+* Using Wireshark's built-in color-coding as an aid during packet analysis
 
 ---
 
@@ -29,55 +29,62 @@ Continue building on Day 8's Wireshark fundamentals by applying the `tcp` filter
 # Show all TCP traffic
 tcp
 
-# (Discussed, not yet applied) Isolate only reset packets
+# Learned during this lab (not applied in this capture)
 tcp.flags.reset == 1
 
-# (Discussed, not yet applied) Isolate flagged retransmissions
+# Learned during this lab (not applied in this capture)
 tcp.analysis.retransmission
 ```
 
 ---
 
-# Process 
+# Process (In My Own Words)
 
-I started a fresh Wireshark capture on `eth0` and generated traffic by browsing to Google and NeverSSL in Firefox. I ran into two small technical issues along the way: the Wireshark window didn't come to focus automatically after starting the capture (I had to click its icon in the taskbar to bring it forward), and clipboard copy-paste didn't work between my host machine and the Kali VM, so I had to type URLs directly instead of pasting them.
+I started a new Wireshark capture on the `eth0` network interface and generated traffic by browsing to Google and NeverSSL using Firefox.
 
-Once traffic was flowing, I applied the `tcp` filter, which showed roughly half of all captured packets were TCP (1849 out of 3714 total). Along the way, one of my first attempts to browse to a site failed with a "domain does not exist" error — I worked around this by trying a different, known-working site (NeverSSL) instead.
+During the lab, I encountered two minor technical issues. First, after launching Wireshark from the terminal, the application window did not automatically come to the foreground, so I clicked the Wireshark icon in the taskbar to bring it into focus. Second, clipboard copy-and-paste was not working between my Windows host machine and the Kali Linux virtual machine, so I manually typed the URLs into Firefox instead.
 
-Looking through the results, I found a clean example of the three-way handshake I'd studied: two separate connections (source ports 44968 and 44978) both reaching the same destination IP on port 443 (HTTPS), each showing SYN, then SYN/ACK, then ACK in sequence — exactly matching the theory.
+Once traffic was flowing, I applied the `tcp` display filter, which showed that approximately half of the captured packets were TCP traffic (1,849 out of 3,714 total packets). One of my initial attempts to browse to a website returned a "domain does not exist" error, so I switched to NeverSSL, which successfully generated additional traffic for analysis.
 
-Further down the capture, I noticed several packets highlighted in red — these were RST (reset) packets on both of those same connections. I wasn't sure at first whether this indicated something suspicious, since it looked different from the graceful FIN/ACK teardown I'd studied. After discussing it, I learned that this was actually normal browser behavior — closing multiple parallel HTTPS connections it no longer needed, not a sign of a problem. This helped me understand what would actually be suspicious instead: resets coming from many different ports on one external IP (a sign of port scanning), or resets on a connection to a service that should normally stay open.
+While reviewing the capture, I found a clear example of the TCP three-way handshake. Two separate connections (source ports 44968 and 44978) both connected to the same destination IP address on port 443 (HTTPS). Each connection followed the expected sequence of SYN → SYN,ACK → ACK, exactly matching what I had learned about the TCP three-way handshake.
+
+Later in the capture, I noticed several packets highlighted in red. These were TCP RST (reset) packets associated with the same HTTPS connections. At first, I wasn't sure whether these packets indicated suspicious activity because they looked different from the graceful FIN/ACK connection termination I had previously studied. After investigating further, I learned that these resets represented normal browser behavior. Modern web browsers often open multiple parallel HTTPS connections and terminate the ones they no longer need using RST packets. This helped me understand that context is critical when analyzing network traffic.
+
+I also learned what would actually be considered suspicious. For example, numerous RST packets coming from a single external IP address across many different destination ports could indicate port scanning activity. Likewise, unexpected resets on a long-lived connection to a critical internal service could warrant further investigation.
 
 ---
 
 # Key Takeaways
 
-* **A real three-way handshake looks exactly like the theory** — seeing SYN → SYN,ACK → ACK in an actual capture made the concept concrete rather than abstract.
-* **Not every RST is suspicious.** Browsers routinely open multiple parallel connections and reset the ones they no longer need. Context matters more than the presence of a reset packet alone.
-* **Wireshark's color-coding is a helpful starting point, not a verdict.** Red highlighting draws attention to resets, but it's up to the analyst to reason about whether that's normal or a genuine concern.
-* **What would actually be suspicious:** repeated resets from a single external IP across many ports (port scan behavior), or resets on a connection to a service that should be reliably open — neither of which appeared in this capture.
-* **Small environment issues are part of the job.** Window focus and clipboard sharing between host and VM are minor technical hiccups, not blockers — worth troubleshooting quickly and moving on.
+* **A real TCP three-way handshake looks exactly like the theory.** Observing SYN → SYN,ACK → ACK in a live packet capture reinforced my understanding by showing the process in a real network environment.
+* **Not every TCP RST packet is suspicious.** Browsers routinely open multiple HTTPS connections and reset those they no longer need. The presence of a reset packet alone does not indicate malicious activity.
+* **Wireshark's color-coding is a helpful starting point, not a conclusion.** Red highlighting draws attention to packets that deserve investigation, but analysts must rely on context before determining whether activity is suspicious.
+* **Context is essential during analysis.** Repeated resets across many destination ports from the same external IP could indicate scanning behavior, while resets on normal browser sessions are expected.
+* **Troubleshooting is part of cybersecurity.** Small environment issues, such as application focus or clipboard sharing between host and virtual machines, are common and should be resolved efficiently without interrupting the investigation.
 
 ---
 
 # Challenges Faced
 
-* The Wireshark window didn't automatically come to the foreground after starting the capture from the terminal; resolved by clicking its icon directly in the taskbar.
-* Clipboard copy-paste didn't work between my Windows host and the Kali VM, so pasting a URL into Firefox failed. Resolved by typing the URL directly instead of pasting, since enabling bidirectional clipboard sharing in VirtualBox settings wasn't tested yet.
-* Initially wasn't sure whether the red-highlighted RST packets indicated a problem; resolved by discussing the source/destination port pattern and learning that it reflected normal browser behavior rather than assuming red automatically means malicious.
+* The Wireshark window did not automatically come to the foreground after launching it from the terminal. I resolved this by selecting the application from the taskbar.
+* Clipboard copy-and-paste between my Windows host and Kali Linux virtual machine was unavailable, so I manually entered the URLs into Firefox instead.
+* Initially, I was unsure whether the red-highlighted TCP RST packets indicated suspicious activity. By examining the source and destination ports and understanding browser behavior, I concluded that the resets were normal rather than malicious.
 
 ---
 
 # Connection to Real SOC Work
 
-Recognizing normal versus suspicious TCP behavior is a core part of triaging alerts in a SOC environment. Automated tools will often flag anomalies like resets or retransmissions, but a huge part of an analyst's job is applying context to decide whether that's actually a problem. In this case, resets tied to normal browser connection management would not warrant escalation — but the same RST pattern appearing across dozens of ports from one external source, or on a connection to a critical internal service, would be a very different story and worth investigating further. This is exactly the kind of judgment call that separates alert fatigue (chasing every flagged packet) from effective triage (knowing what's actually worth escalating).
+Recognizing the difference between normal and suspicious TCP behavior is an important skill for SOC analysts. Security monitoring tools frequently generate alerts for events such as TCP resets or retransmissions, but an analyst must investigate the surrounding context before determining whether an alert requires escalation.
+
+In this exercise, the TCP RST packets were associated with normal browser connection management and did not indicate malicious activity. However, similar reset patterns occurring across multiple ports from the same external IP address, or on long-lived connections to critical internal services, could indicate scanning, service disruption, or other malicious behavior requiring further investigation.
+
+This lab reinforced the importance of analyzing network traffic carefully before reaching conclusions and demonstrated how understanding normal behavior helps reduce false positives while allowing analysts to focus on genuine security incidents.
 
 ---
 
 # Screenshots
 
-The following screenshots will be added to the GitHub repository:
+The following screenshots are included in the GitHub repository:
 
-* Live capture running with `tcp` filter applied
-* Clean three-way handshake (SYN → SYN,ACK → ACK) on two parallel connections
-* RST packets highlighted in red, shown alongside the connections they belonged to
+* `day9-tcp-filter-applied.png` — The `tcp` display filter applied, showing TCP traffic generated during the live capture.
+* `day9-handshake-and-rst-packets.png` — A single packet capture showing both the TCP three-way handshake (SYN → SYN,ACK → ACK) and the TCP RST packets that appeared shortly afterward on the same HTTPS connections.
