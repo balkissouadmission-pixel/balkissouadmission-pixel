@@ -23,6 +23,9 @@ This GitHub documents my hands-on cybersecurity projects as I continue building 
 - [Kali Linux Hands-On Practice — Day 6](./day6-linux-fundamentals.md)
 - [Hack The Box: Meow — Day 7](./day7-hackthebox-meow.md)
 - [Wireshark Network Traffic Analysis — Day 8](./day8-wireshark-analysis.md)
+- [TCP Analysis & Suspicious Patterns — Day 9](./day9-tcp-analysis.md)
+- [Hack The Box: Fawn — Day 10](./day10-hackthebox-fawn.md)
+- [Nmap Lab Report — Day 10-11](./nmap-lab-report.md)
 
 More write-ups are added as I complete each stage of my learning.
 
