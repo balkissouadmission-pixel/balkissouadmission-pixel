@@ -2,7 +2,7 @@
 
 I'm passionate about cybersecurity, with a strong foundation in **Governance, Risk, and Compliance (GRC)**, **IT Audit**, and **Risk Management**. I'm continuously expanding my technical cybersecurity skills through hands-on labs, practical projects, and continuous learning.
 
-This GitHub documents my hands-on cybersecurity projects as I continue building practical experience in Linux, networking, packet analysis, vulnerability assessment, security monitoring, and other technical cybersecurity domains. Each repository captures what I learned, the techniques I practiced, the challenges I encountered, and how those experiences contribute to my growth as a cybersecurity professional.
+This GitHub showcases my hands-on cybersecurity projects and technical labs as I continue building practical experience in Linux, networking, packet analysis, vulnerability assessment, security monitoring, and other technical cybersecurity domains. Each repository captures what I learned, the techniques I practiced, the challenges I encountered, and how those experiences contribute to my growth as a cybersecurity professional.
 
 ---
 
