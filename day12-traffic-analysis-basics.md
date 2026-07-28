@@ -1,4 +1,4 @@
-# Day 12-14 — TryHackMe: Traffic Analysis Basics / Network Traffic Basics
+# Day 12— TryHackMe: Traffic Analysis Basics / Network Traffic Basics
 
 ## Objective
 Understand what network traffic analysis is, why it matters for security monitoring, and practice placing a network tap in the most efficient location in a network topology to capture and inspect suspicious traffic (HTTP and DNS).
