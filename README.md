@@ -26,6 +26,9 @@ This GitHub showcases my hands-on cybersecurity projects and technical labs as I
 - [TCP Analysis & Suspicious Patterns — Day 9](./day9-tcp-analysis.md)
 - [Hack The Box: Fawn — Day 10](./day10-hackthebox-fawn.md)
 - [Nmap Lab Report — Day 10-11](./nmap-lab-report.md)
+- Traffic Analysis Basics — Day 12
+- Network Security and Traffic Analysis Essentials — Day 13
+- Vulnerability Assessment: Nessus on Metasploitable2 — Day 14
 
 More write-ups are added as I complete each stage of my learning.
 
